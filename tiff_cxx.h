@@ -57,7 +57,19 @@ namespace tiff
 	typedef Vec2<float> Vec2f;
 	typedef Vec2<unsigned long> Vec2ul;
 
-	using variant_t = std::variant<uint8_t, uint16_t, uint32_t, uint64_t, int8_t, int16_t, int32_t, int64_t, float>;
+	using variant_t = std::variant<uint8_t, uint16_t, uint32_t, uint64_t>;
+
+	namespace util
+	{
+		template <typename from_t, typename cast_t>
+		cast_t cast_as(from_t from)
+		{
+			cast_t result{};
+			static_assert(sizeof from_t == sizeof cast_t);
+			std::memcpy(&result, &from, sizeof from_t);
+			return result;
+		}
+	}
 
 	namespace reader
 	{
