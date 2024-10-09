@@ -37,9 +37,9 @@ if (reader.open() != tiff::Error::NoError)
 if (reader.good())
 {
     std::cout << "\nwidth = " << reader.width() << ", height = " << reader.height() << "\n"
-    
-	auto err = tiff::Error::NoError;
-	auto data = reader.get_sample_data(0, err);
+
+    auto err = tiff::Error::NoError;
+    auto data = reader.get_sample_data(0, err);
     if (err == tiff::Error::NoError)
     {
         auto& variant = data.at(0);
