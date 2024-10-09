@@ -1,0 +1,3 @@
+[submodule "reference/TinyTIFF"]
+	path = reference/TinyTIFF
+	url = https://github.com/jkriege2/TinyTIFF.git
